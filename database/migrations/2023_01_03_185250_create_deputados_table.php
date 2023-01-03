@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('redes_sociais', function (Blueprint $table) {
+        Schema::create('deputados', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
             $table->string('nome');
+            $table->string('partido');
+
+            $table->dateTime('updated_at');
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('redes_sociais');
+        Schema::dropIfExists('deputados');
     }
 };
