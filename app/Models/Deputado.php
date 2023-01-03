@@ -21,7 +21,7 @@ class Deputado extends Model
     ];
 
     public function redesSociais(){
-        return $this->belongsToMany(RedeSocial::class, 'deputado_redes_sociais');
+        return $this->belongsToMany(RedeSocial::class, 'deputado_redes_sociais', 'deputado_id', 'rede_id')->withPivot('active');
     }
 
 }
