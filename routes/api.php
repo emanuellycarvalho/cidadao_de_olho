@@ -88,4 +88,4 @@ Route::get('povoar-database', function(){
 });
 
 Route::get('deputados/verbas/maior-reembolso-mensal', [DeputadoController::class, 'maiorReembolsoDeVerbasPorMes']);
-Route::get('deputados/redes-sociais/mais-utilizada', [DeputadoController::class, 'redesSociaisMaisUtilizadas']);
+Route::get('deputados/redes-sociais/mais-utilizadas', [DeputadoController::class, 'rankingRedesSociais']);
