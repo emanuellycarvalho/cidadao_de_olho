@@ -46,8 +46,7 @@ Route::get('povoar-database', function(){
 
                 DB::table('deputado_redes_sociais')->updateOrInsert([
                     'deputado_id' => $deputado['id'],
-                    'rede_id' =>  $rede['redeSocial']['id'],
-                    'active' => true
+                    'rede_id' =>  $rede['redeSocial']['id']
                     ],
                     [
                         'updated_at' => now()

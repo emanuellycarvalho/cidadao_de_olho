@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('deputado_redes_sociais', function (Blueprint $table) {
             $table->unsignedBigInteger('rede_id');
             $table->unsignedBigInteger('deputado_id');
-            $table->boolean('active');
+            $table->boolean('active')->default(true);
             $table->dateTime('updated_at');
             
             $table->foreign('rede_id')->references('id')->on('redes_sociais');
