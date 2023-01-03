@@ -81,6 +81,11 @@ Route::get('povoar-database', function(){
             }
         }
     }
+
+    return response()->json([
+        'status' => 200,
+        'message' => 'Dados da api armazenados no banco da aplicacao.'
+    ]);
 });
 
 Route::get('deputados/verbas/maior-reembolso-mensal', [DeputadoController::class, 'maiorReembolsoDeVerbasPorMes']);
