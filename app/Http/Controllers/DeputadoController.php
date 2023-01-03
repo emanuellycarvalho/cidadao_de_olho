@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Deputado;
+use App\Models\RedeSocial;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,10 +30,10 @@ class DeputadoController extends Controller
         return $result;
     }
 
-    public function redesSociaisMaisUtilizadas(){
-        $ranking = DB::select("SELECT count(*), rede_id FROM `deputado_redes_sociais` GROUP BY rede_id ORDER BY `count(*)` DESC");
-            Arr::map($ranking, function($rede){
-            $nome = DB::table('redes_sociais')->where('id', $rede->rede_id)->get()[0]->nome;
+    public function rankingRedesSociais(){
+        $ranking = DB::select("SELECT count(*) as usuarios, rede_id FROM `deputado_redes_sociais` WHERE `active` = true GROUP BY rede_id ORDER BY `usuarios` DESC");
+        Arr::map($ranking, function($rede){
+            $nome = RedeSocial::find($rede->rede_id)->nome;
             $rede->nome = $nome;
         });
 
