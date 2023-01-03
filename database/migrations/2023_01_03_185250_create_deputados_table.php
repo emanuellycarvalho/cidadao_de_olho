@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('deputado_reembolso_mensal', function (Blueprint $table) {
-            $table->unsignedBigInteger('deputado');
-            $table->integer('mes');
-            $table->year('ano');
-            $table->double('valor', 10, 2);
-            $table->timestamps();
+        Schema::create('deputados', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->primary();
+            $table->string('nome');
+            $table->string('partido');
+
+            $table->dateTime('updated_at');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deputado_reembolso_mensal');
+        Schema::dropIfExists('deputados');
     }
 };
